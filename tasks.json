@@ -1,0 +1,16 @@
+[
+  {
+    "text" : "fare la spesa",
+    "done" : false
+  },
+
+  {
+    "text" : "bagnare l'orto",
+    "done" : false
+  },
+
+  {
+    "text" : "giocare a nascondino con i camaleonti",
+    "done" : false
+  }
+]
