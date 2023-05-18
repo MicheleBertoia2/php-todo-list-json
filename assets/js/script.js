@@ -16,12 +16,25 @@ createApp({
     deleteTask(index){
       errorMsg = ''
       if(this.tasks[index].done){
-        this.tasks.splice(index, 1)
+        // this.tasks.splice(index, 1)
+
+        const data = new FormData();
+        data.append('indexToDelete', index);
+
+        axios.post(this.apiUrl, data)
+          .then(result => {
+            this.tasks = result.data
+          })
+
       }else{
-        this.errorMsg = 'Attenzione per cancellare la task assicurati di averla completata!'
+        this.errorMsg = 'Attenzione per cancellare la task assicurati di averla completata!';
+        setInterval(this.clearMsg,3000);
       }
     },
-
+    clearMsg(){
+      this.errorMsg = "";       
+    },
+    
     addTask(){
       if(this.newTaskText.length > 4){
 

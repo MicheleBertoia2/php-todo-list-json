@@ -14,6 +14,12 @@ if(isset($_POST['ToDoTask'])){
   filePut($tasks);
 }
 
+if(isset($_POST['indexToDelete'])){
+  $index = $_POST['indexToDelete'];
+  array_splice($tasks, $index, 1);
+  filePut($tasks);
+};
+
 function filePut($tasks){
   file_put_contents('tasks.json', json_encode($tasks));
 };
