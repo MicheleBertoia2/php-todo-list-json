@@ -1,0 +1,84 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  width: 70%;
+  margin: 30px auto;
+  background-color: #d3d3d3;
+}
+
+.logo {
+  padding: 30px;
+  text-align: center;
+}
+
+.logo img {
+  width: 500px;
+}
+
+.input-group {
+  text-align: center;
+}
+
+.input-group input, .input-group button {
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+.input-group input {
+  width: 500px;
+  margin-right: 20px;
+}
+
+.input-group input:focus-visible {
+  border: 1px solid #001332;
+  box-shadow: 0 0 5px #06285e;
+}
+
+.input-group button {
+  cursor: pointer;
+}
+
+.input-group span {
+  color: red;
+}
+
+.tasks-list {
+  padding: 10px 20px;
+}
+
+.tasks-list li {
+  list-style: none;
+  border-bottom: 1px solid grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+}
+
+.tasks-list li span {
+  line-height: 50px;
+}
+
+.tasks-list li i {
+  cursor: pointer;
+} 
+
+.tasks-list li i:hover{
+  color: red;
+}
+
+.done {
+  text-decoration: line-through;
+}
