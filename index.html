@@ -28,7 +28,7 @@
     </div>
 
     <div class="input-group">
-      <input v-model.trim="newTaskText" type="text" placeholder="Inserisci Task">
+      <input v-model.trim="newTaskText" type="text" placeholder="Inserisci Task" @keyup.enter="addTask">
       <button @click="addTask">Aggiungi</button>
       <div>
         <span>{{errorMsg}}</span>

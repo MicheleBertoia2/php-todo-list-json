@@ -5,25 +5,10 @@ const {createApp} = Vue;
 createApp({
   data(){
     return{
-      tasks : [
-
-        {
-          text : 'fare la spesa',
-          done : false
-        },
-
-        {
-          text : "bagnare l'orto",
-          done : false
-        },
-
-        {
-          text : 'giocare a nascondino con i camaleonti',
-          done : false
-        },
-      ],
+      tasks : [],
       errorMsg : '',
-      newTaskText : ''
+      newTaskText : '',
+      apiUrl: "server.php",
     }
   },
 
@@ -39,15 +24,35 @@ createApp({
 
     addTask(){
       if(this.newTaskText.length > 4){
-        const newTask = {
-          text : this.newTaskText,
-          done : false,
-        }
-        this.tasks.unshift(newTask)
+
+        const data = new FormData();
+        data.append('ToDoTask', this.newTaskText)
+
+        axios.post(this.apiUrl, data)
+          .then(result =>{
+            this.newTaskText = '';
+            this.tasks = result.data;
+          })
+
+        // const newTask = {
+        //   text : this.newTaskText,
+        //   done : false,
+        // }
+        // this.tasks.unshift(newTask)
       }else {
         this.errorMsg = 'Il testo deve contenere almeno 5 caratteri'
       }
-      this.newTaskText = ''
+    },
+    readTasks(){
+      axios.get(this.apiUrl)
+        .then(result =>{
+          this.tasks = result.data;
+        })
     }
+  },
+
+  mounted(){
+    this.readTasks()
   }
+
 }).mount('#app')
